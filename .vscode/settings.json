@@ -1,0 +1,5 @@
+{
+    "r.lsp.promptToInstall": false,
+    "python.defaultInterpreterPath": "C:\\Users\\Vehiller\\miniconda3\\envs\\forecasting\\python.exe",
+    "python.terminal.activateEnvironment": true
+}

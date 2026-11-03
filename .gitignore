@@ -1,0 +1,18 @@
+﻿# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*.class
+
+# Caches and checkpoints
+.ipynb_checkpoints/
+.pytest_cache/
+
+# Ambientes virtuales y paquetes locales
+.env
+.venv
+env/
+venv/
+
+# VS Code / Workspace temporales
+.vscode/*
+!.vscode/settings.json
