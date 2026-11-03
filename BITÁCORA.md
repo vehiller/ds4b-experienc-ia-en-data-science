@@ -69,6 +69,15 @@
 - Se migró el nombre del directorio local de `DS4B` a `ds4b-experienc-ia-en-data-science` para guardar correspondencia exacta con el repositorio remoto de GitHub.
 - Se verificó que la estructura de carpetas, el intérprete de Conda y las directivas del agente se mantuvieran intactos tras la reapertura del proyecto.
 
+### Hito 7: Inicialización del Repositorio Local y Primer Commit Semántico
+- **Control de versiones local:** Inicialización del repositorio Git local (`git init`) y preparación de la rama `main`.
+- **Commit fundacional:** Creación del primer commit semántico (`95201cd`) registrando la arquitectura inicial del proyecto, directivas del agente, entorno Conda y documentación técnica.
+
+### Hito 8: Aislamiento de Identidad Git y Sincronización Remota vía Token (Classic)
+- **Gestión multi-cuenta:** Para prevenir colisiones con otras cuentas activas en el sistema, se aislaron las credenciales a nivel local mediante un Personal Access Token (classic) con ámbito exclusivo `repo`.
+- **Fijación de autoría:** Configuración explícita de `user.name` ("vehiller") y `user.email` para este repositorio.
+- **Sincronización:** Publicación exitosa de la rama `main` hacia el repositorio remoto `https://github.com/vehiller/ds4b-experienc-ia-en-data-science.git`, transfiriendo los 27 objetos de la arquitectura inicial.
+
 ---
 
 ## 3. Estado de Auditoría del Entorno
@@ -76,5 +85,6 @@
 - **Ruta de proyecto:** `C:\Users\Vehiller\Documents\GitHub\ds4b-experienc-ia-en-data-science`
 - **Intérprete activo:** `C:\Users\Vehiller\miniconda3\envs\forecasting\python.exe`
 - **Librerías verificadas y operativas:** pandas (3.1.0), scikit-learn (1.9.1), matplotlib (3.11.2), seaborn (0.13.2), streamlit (1.66.1), holidays (0.108), ipykernel.
-- **Siguiente paso operativo:** Vinculación de control de versiones con GitHub y primer commit semántico de estado del arte.
+- **Control de versiones:** Repositorio 100% sincronizado en GitHub (`main` -> `origin/main`).
+- **Estado operativo:** Estación de trabajo y entorno cerrados y 100% operativos, listos para la **Etapa 2 del programa (Ingesta y Calidad de Datos)**.
 
