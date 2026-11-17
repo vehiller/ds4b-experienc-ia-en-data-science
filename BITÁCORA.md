@@ -83,7 +83,7 @@
 Los siguientes hitos documentan la transición desde el stack inicial (Conda + Antigravity) hacia el stack definitivo (venv + Python 3.12.8 + Continue + Abacus.ai) ejecutada el 17/11/2026.
 
 ### Hito 9: Transición y Reconfiguración del Asistente Cognitivo
-- **Motivación:** Imposibilidad de costear la suscripción de GitHub Copilot, lo que obligó a buscar una alternativa gratuita o de menor costo para mantener la asistencia de IA en VS Code.
+- **Motivación:** Imposibilidad de contratar la suscripción de GitHub Copilot debido a las restricciones geográficas y de políticas de pago que GitHub aplica en Venezuela, lo que impide procesar el pago desde esta región. Esto obligó a buscar una alternativa compatible con la suscripción existente a Abacus.ai para mantener la asistencia de IA en VS Code.
 - **Solución adoptada:** Instalación de la extensión Continue vinculada vía API a la suscripción de Abacus.ai.
 - **Configuración del entorno:**
   - Se configuró config.yaml con el proveedor openai, modelo route-llm y apiBase apuntando a https://routellm.abacus.ai/v1.
