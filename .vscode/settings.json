@@ -1,5 +1,24 @@
 {
     "r.lsp.promptToInstall": false,
-    "python.defaultInterpreterPath": "C:\\Users\\Vehiller\\miniconda3\\envs\\forecasting\\python.exe",
-    "python.terminal.activateEnvironment": true
+    "python.defaultInterpreterPath": "C:/Users/Vehiller/miniconda3/envs/forecasting/python.exe",
+    "python.terminal.activateEnvironment": true,
+    "files.autoSave": "afterDelay",
+    "files.autoSaveDelay": 1000,
+    "workbench.editor.reloadOnFileChanges": true,
+    "python.analysis.typeCheckingMode": "off",
+    "python.analysis.diagnosticSeverityOverrides": {
+        "reportMissingImports": "none",
+        "reportMissingModuleSource": "none"
+    },
+    "python.analysis.extraPaths": [
+        "C:/Users/Vehiller/miniconda3/envs/forecasting/Lib/site-packages",
+        "C:/Users/Vehiller/AppData/Local/Programs/Python/Python312/Lib/site-packages"
+    ],
+    "python-envs.pythonProjects": [
+        {
+            "path": ".",
+            "envManager": "ms-python.python:conda",
+            "packageManager": "ms-python.python:conda"
+        }
+    ]
 }
