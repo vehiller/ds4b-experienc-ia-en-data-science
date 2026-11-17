@@ -1,5 +1,3 @@
-Necesito que actualices el archivo BITACORA.txt en la raíz del proyecto. Reemplaza todo su contenido por la siguiente narrativa exacta. Asegúrate de mantener el formato Markdown y respetar las fechas indicadas. No modifiques nada más del proyecto.
-
 # Bitácora de Desarrollo e Ingeniería del Proyecto
 > **Proyecto:** ds4b-experienc-ia-en-data-science  
 > **Programa:** Experienc-IA en Data Science (DS4B - Data Science 4 Business)  
