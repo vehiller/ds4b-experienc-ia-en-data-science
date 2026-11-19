@@ -2,7 +2,7 @@
 > **Proyecto:** ds4b-experienc-ia-en-data-science  
 > **Programa:** Experienc-IA en Data Science (DS4B - Data Science 4 Business)  
 > **Fecha de Creación del Repositorio:** 8 de Noviembre de 2026  
-> **Fecha de Última Actualización:** 18 de Noviembre de 2026  
+> **Fecha de Última Actualización:** 19 de Noviembre de 2026  
 > **Propósito:** Registro exhaustivo de decisiones técnicas, gobernanza de IA, configuración del entorno y evolución del ciclo de vida del dato.
 
 ---
@@ -151,3 +151,20 @@ Los siguientes hitos documentan la transición desde el stack inicial (Conda + A
 - **Carga de datos:** Se incorporó la lectura desde `data/raw/entrenamiento/ventas.csv` y `data/raw/entrenamiento/competencia.csv`.
 - **Verificación realizada:** Se mostraron las primeras filas de ambos conjuntos de datos y se confirmó que el notebook ejecuta correctamente la carga inicial.
 - **Estado de la tarea:** La base técnica y el punto de partida del análisis están listos para continuar con la etapa de ingesta, auditoría de calidad y análisis exploratorio.
+
+---
+
+## 6. Ingesta, Calidad e Integración de Datos (19 de Noviembre de 2026)
+
+### Hito 16: Carga Tipada y Auditoría de Calidad de los Datos
+- **Carga de archivos:** Se configuró la lectura de `ventas.csv` y `competencia.csv` desde las rutas relativas de `notebooks`, interpretando `fecha` como tipo datetime.
+- **Auditoría de `ventas_df`:** Se revisaron dimensiones, tipos, nulos, duplicados, unicidad de la clave fecha-producto, cobertura por fecha, valores no positivos, descriptivos, valores atípicos IQR y consistencia entre unidades, precio de venta e ingresos.
+- **Auditoría de `competencia_df`:** Se aplicaron controles equivalentes, incluyendo precios no positivos, estadísticas descriptivas, valores atípicos IQR y correspondencia de claves con `ventas_df`.
+- **Resultados verificados:** Ambos conjuntos contienen 3.552 filas; no presentan nulos, duplicados ni fechas no convertibles. Hay 24 productos en cada una de las 148 fechas y las claves fecha-producto coinciden entre ambos archivos.
+- **Hallazgos para seguimiento:** Los controles IQR señalan posibles valores extremos, que deben evaluarse por producto y contexto comercial. También se identificaron precios de venta superiores al precio base en algunos registros; no se modificaron ni eliminaron datos sin confirmación de reglas de negocio.
+
+### Hito 17: Integración de Ventas y Precios de Competencia
+- **DataFrame integrado:** Se creó `df` mediante una unión interna (`inner`) de `ventas_df` y `competencia_df` por `fecha` y `producto_id`, con validación de relación uno a uno.
+- **Resultado:** La integración conserva las 3.552 observaciones coincidentes y produce un DataFrame de 13 columnas.
+- **Validación del notebook:** Se ejecutaron las celdas para actualizar las salidas y comprobar el resultado de la unión. También se corrigieron las importaciones sin uso detectadas en el panel `Problems`, que quedó sin errores.
+- **Gobernanza del proyecto:** Se ampliaron las instrucciones de `.github/instructions.md` con los esquemas de columnas de `ventas_df` y `competencia_df` para orientar el trabajo posterior.
