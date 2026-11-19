@@ -2,7 +2,7 @@
 > **Proyecto:** ds4b-experienc-ia-en-data-science  
 > **Programa:** Experienc-IA en Data Science (DS4B - Data Science 4 Business)  
 > **Fecha de Creación del Repositorio:** 8 de Noviembre de 2026  
-> **Fecha de Última Actualización:** 17 de Noviembre de 2026  
+> **Fecha de Última Actualización:** 18 de Noviembre de 2026  
 > **Propósito:** Registro exhaustivo de decisiones técnicas, gobernanza de IA, configuración del entorno y evolución del ciclo de vida del dato.
 
 ---
@@ -132,3 +132,22 @@ Los siguientes hitos documentan la transición desde el stack inicial (Conda + A
 - **Librerías verificadas y operativas:** pandas (3.1.1), numpy (2.5.5), scikit-learn (1.9.1), matplotlib (3.11.2), seaborn (0.13.2), streamlit (1.67.0), holidays (0.108), jupyter (1.1.1).
 - **Control de versiones:** Repositorio sincronizado en GitHub (main -> origin/main) a la espera de este commit.
 - **Estado operativo:** Estación de trabajo y entorno cerrados y 100% operativos, listos para la Etapa 2 del programa (Ingesta y Calidad de Datos).
+
+---
+
+## 5. Avances del 18 de Noviembre de 2026
+
+### Hito 14: Gobernanza de GitHub Copilot en el Repositorio
+- **Configuración incorporada:** Se agregó el archivo `.github/instructions.md` para establecer instrucciones persistentes del asistente dentro del repositorio.
+- **Directrices registradas:**
+  - Respuesta obligatoria con el emoji de robot y en idioma español.
+  - Uso exclusivo de pandas, numpy, matplotlib, seaborn, scikit-learn, jupyter, streamlit y holidays.
+  - Restricción de variables adicionales del DataFrame `df` hasta definirlas explícitamente en el código generado.
+- **Resultado:** El entorno dispone de reglas de gobernanza específicas también para GitHub Copilot, alineadas con las políticas ya aplicadas al flujo de trabajo del proyecto.
+
+### Hito 15: Inicio del Análisis Exploratorio en el Notebook
+- **Archivo preparado:** Se creó el notebook `notebooks/entrenamiento.ipynb` y se configuró con el kernel `venv (3.12.8)`.
+- **Entorno técnico habilitado:** Se cargaron las librerías principales para análisis y modelado: pandas, numpy, matplotlib, seaborn, scikit-learn, Streamlit y holidays.
+- **Carga de datos:** Se incorporó la lectura desde `data/raw/entrenamiento/ventas.csv` y `data/raw/entrenamiento/competencia.csv`.
+- **Verificación realizada:** Se mostraron las primeras filas de ambos conjuntos de datos y se confirmó que el notebook ejecuta correctamente la carga inicial.
+- **Estado de la tarea:** La base técnica y el punto de partida del análisis están listos para continuar con la etapa de ingesta, auditoría de calidad y análisis exploratorio.
