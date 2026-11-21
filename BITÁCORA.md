@@ -2,7 +2,7 @@
 > **Proyecto:** ds4b-experienc-ia-en-data-science  
 > **Programa:** Experienc-IA en Data Science (DS4B - Data Science 4 Business)  
 > **Fecha de Creación del Repositorio:** 8 de Noviembre de 2026  
-> **Fecha de Última Actualización:** 20 de Noviembre de 2026  
+> **Fecha de Última Actualización:** 21 de Noviembre de 2026  
 > **Propósito:** Registro exhaustivo de decisiones técnicas, gobernanza de IA, configuración del entorno y evolución del ciclo de vida del dato.
 
 ---
@@ -178,3 +178,13 @@ Los siguientes hitos documentan la transición desde el stack inicial (Conda + A
 - **Análisis de Densidad de Precios:** Gráfico de densidad (KDE) comparativo entre los precios de venta propios y los precios de Amazon (competencia) para evaluar la posición de mercado.
 - **Refinamiento Visual:** Optimización estética de todos los gráficos utilizando la librería Seaborn, aplicando paletas de colores diferenciadas por barra para mejorar la legibilidad y presentación profesional del entregable.
 - **Estructura del Notebook:** Organización de cada análisis en celdas independientes dentro del archivo `entrenamiento.ipynb` para mantener la modularidad y facilitar la revisión.
+
+## 8. Ingeniería de Variables y Preparación para el Modelado (21 de Noviembre de 2026)
+
+### Hito 19: Feature Engineering, Codificación y Exportación del Dataset
+- **Variables Temporales y Calendario:** Se implementó un bloque de ingeniería de variables temporales utilizando `holidays` para España. Se crearon variables como año, mes, día, día de la semana, trimestre, semana ISO, y variables cíclicas (senos y cosenos) para meses y días. Además, se identificaron de forma dinámica los días de Black Friday, Cyber Monday y la campaña de Black Friday para cada año.
+- **Variables de Descuento:** Se calculó el porcentaje de descuento aplicado sobre el precio base (`descuento_porcentaje`).
+- **Variables de Competencia:** Se integraron los precios de Amazon, Decathlon y Deporvillage para calcular el precio promedio de la competencia (`precio_competencia`) y el ratio de competitividad de nuestro precio frente al mercado (`ratio_precio`). Posteriormente, se eliminaron las columnas individuales de los competidores para evitar redundancia.
+- **Variables Históricas (Lags):** Se generaron los lags de ventas (del 1 al 7) y una media móvil de 7 días, agrupando por producto y año. Se aplicó un `shift(1)` en la media móvil para evitar el *data leakage* (fuga de información). Finalmente, se eliminaron las filas con historial incompleto.
+- **Codificación One-Hot Encoding:** Se aplicó la técnica de One-Hot Encoding a las variables categóricas de identidad (`nombre`, `categoria`, `subcategoria`). Se generaron copias con sufijo `_h` para preservar los textos originales y se crearon las columnas binarias (0s y 1s) necesarias para que `scikit-learn` pueda procesar los datos.
+- **Exportación del Dataset:** Se consolidó el DataFrame final con todas las variables integradas y se exportó a la ruta `data/processed/df.csv` utilizando `pathlib` para garantizar la portabilidad de las rutas y `encoding='utf-8'` para preservar los caracteres especiales.
