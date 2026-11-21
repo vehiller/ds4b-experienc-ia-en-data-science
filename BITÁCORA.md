@@ -2,7 +2,7 @@
 > **Proyecto:** ds4b-experienc-ia-en-data-science  
 > **Programa:** Experienc-IA en Data Science (DS4B - Data Science 4 Business)  
 > **Fecha de Creación del Repositorio:** 8 de Noviembre de 2026  
-> **Fecha de Última Actualización:** 19 de Noviembre de 2026  
+> **Fecha de Última Actualización:** 20 de Noviembre de 2026  
 > **Propósito:** Registro exhaustivo de decisiones técnicas, gobernanza de IA, configuración del entorno y evolución del ciclo de vida del dato.
 
 ---
@@ -168,3 +168,13 @@ Los siguientes hitos documentan la transición desde el stack inicial (Conda + A
 - **Resultado:** La integración conserva las 3.552 observaciones coincidentes y produce un DataFrame de 13 columnas.
 - **Validación del notebook:** Se ejecutaron las celdas para actualizar las salidas y comprobar el resultado de la unión. También se corrigieron las importaciones sin uso detectadas en el panel `Problems`, que quedó sin errores.
 - **Gobernanza del proyecto:** Se ampliaron las instrucciones de `.github/instructions.md` con los esquemas de columnas de `ventas_df` y `competencia_df` para orientar el trabajo posterior.
+
+## 7. Análisis Exploratorio de Datos (EDA) y Visualización (20 de Noviembre de 2026)
+
+### Hito 18: Análisis Exploratorio y Creación de Gráficos
+- **Análisis Temporal:** Implementación de gráficos de líneas temporales segmentados por año, mostrando la suma de unidades vendidas y destacando los picos de ventas en los días de Black Friday.
+- **Estacionalidad y Categorías:** Generación de gráficos de barras para analizar la distribución de ventas por día de la semana, así como el rendimiento por categoría y subcategoría de productos.
+- **Análisis de Productos:** Identificación y visualización de los Top Productos con mayor volumen de ventas.
+- **Análisis de Densidad de Precios:** Gráfico de densidad (KDE) comparativo entre los precios de venta propios y los precios de Amazon (competencia) para evaluar la posición de mercado.
+- **Refinamiento Visual:** Optimización estética de todos los gráficos utilizando la librería Seaborn, aplicando paletas de colores diferenciadas por barra para mejorar la legibilidad y presentación profesional del entregable.
+- **Estructura del Notebook:** Organización de cada análisis en celdas independientes dentro del archivo `entrenamiento.ipynb` para mantener la modularidad y facilitar la revisión.
