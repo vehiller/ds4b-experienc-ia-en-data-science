@@ -2,7 +2,7 @@
 > **Proyecto:** ds4b-experienc-ia-en-data-science  
 > **Programa:** Experienc-IA en Data Science (DS4B - Data Science 4 Business)  
 > **Fecha de Creación del Repositorio:** 8 de Noviembre de 2026  
-> **Fecha de Última Actualización:** 21 de Noviembre de 2026  
+> **Fecha de Última Actualización:** 22 de Noviembre de 2026  
 > **Propósito:** Registro exhaustivo de decisiones técnicas, gobernanza de IA, configuración del entorno y evolución del ciclo de vida del dato.
 
 ---
@@ -188,3 +188,13 @@ Los siguientes hitos documentan la transición desde el stack inicial (Conda + A
 - **Variables Históricas (Lags):** Se generaron los lags de ventas (del 1 al 7) y una media móvil de 7 días, agrupando por producto y año. Se aplicó un `shift(1)` en la media móvil para evitar el *data leakage* (fuga de información). Finalmente, se eliminaron las filas con historial incompleto.
 - **Codificación One-Hot Encoding:** Se aplicó la técnica de One-Hot Encoding a las variables categóricas de identidad (`nombre`, `categoria`, `subcategoria`). Se generaron copias con sufijo `_h` para preservar los textos originales y se crearon las columnas binarias (0s y 1s) necesarias para que `scikit-learn` pueda procesar los datos.
 - **Exportación del Dataset:** Se consolidó el DataFrame final con todas las variables integradas y se exportó a la ruta `data/processed/df.csv` utilizando `pathlib` para garantizar la portabilidad de las rutas y `encoding='utf-8'` para preservar los caracteres especiales.
+
+## 9. Modelización con Machine Learning y Evaluación (22 de Noviembre de 2026)
+
+### Hito 20: Entrenamiento, Validación y Empaquetado del Modelo de Forecasting
+- **Conceptos y Métricas de Evaluación:** Se profundizó en la evaluación de modelos de forecasting. Se implementaron y analizaron las métricas MAE (Error Absoluto Medio), MSE (Error Cuadrático Medio), RMSE (Raíz del Error Cuadrático Medio), MAPE (Error Porcentual) y R².
+- **Algoritmo Seleccionado:** Se eligió `HistGradientBoostingRegressor` de `scikit-learn` por su eficiencia basada en histogramas, su capacidad para manejar datasets grandes y su soporte nativo para valores nulos. Se configuraron parámetros conservadores (`learning_rate` bajo y regularización L2) para reducir el riesgo de *overfitting*.
+- **Validación Temporal y Resultados:** Se dividió el dataset respetando el tiempo: entrenamiento (2021-2023) y validación (2024). El modelo superó al baseline naive (media), obteniendo un **R² de 0.885** y un **MAPE del 18.8%**.
+- **Auditoría de Errores:** Se analizaron los errores por producto y por periodos de 10 días. Los resultados no fueron uniformes: productos como Domyos mostraron MAE bajo, mientras que los superventas Nike y Adidas tuvieron errores mayores. El MAE agregado aumentó progresivamente en los tres periodos de noviembre, aunque la evolución varió entre productos. Para Black Friday se compararon las ventas reales y predichas de los 24 productos, con un MAE agregado de 2.290 unidades.
+- **Reentrenamiento Final:** Se reentrenó el modelo con todos los datos históricos disponibles (2021-2024), un total de 2.880 registros, para incorporar la información más reciente y prepararlo para predicciones futuras.
+- **Explicabilidad y Exportación:** Se calculó la importancia de variables mediante *Permutation Importance*, identificando los lags y las variables de calendario entre los factores más relevantes. El modelo final se empaquetó con `joblib` y se exportó a `models/modelo_final.joblib`, listo para su integración en el despliegue (por ejemplo, Streamlit).
